@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#0B0B0C;color:#F4F2EC;font-family:'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:#CBF13B;color:#0B0B0C}
+a{color:#CBF13B;text-decoration:none}
+a:hover{color:#F4F2EC}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes meshShift{0%,100%{background-position:0% 0%,100% 0%,50% 100%,50% 50%}33%{background-position:30% 40%,70% 60%,20% 80%,50% 50%}66%{background-position:70% 20%,30% 80%,80% 30%,50% 50%}}@media (max-width:700px){header{flex-wrap:wrap!important;row-gap:10px!important;padding:14px 16px!important}header>nav{width:100%!important;justify-content:space-between!important;gap:2px!important}header nav button{padding:6px 8px!important}header nav button:last-child{margin-left:0!important;padding:8px 14px!important}section{padding-left:20px!important;padding-right:20px!important}footer{padding-left:20px!important;padding-right:20px!important}.rg-about{grid-template-columns:1fr!important}.rg-exp{grid-template-columns:1fr!important;row-gap:6px!important}.rg-contact{grid-template-columns:1fr!important;gap:40px!important}.rg-projhead{grid-template-columns:1fr!important}.rg-story{grid-template-columns:1fr!important}.rg-workitem{grid-template-columns:1fr!important}.rg-more{grid-template-columns:1fr!important}.rg-slots{grid-template-columns:1fr!important}.rg-hero-title{font-size:15vw!important}}@media (max-width:380px){header nav button{font-size:10.5px!important;padding:5px 6px!important;letter-spacing:0.05em!important}header nav button:last-child{padding:7px 12px!important}}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div ref="{{ setRing }}" style="position:fixed;top:0;left:0;width:44px;height:44px;margin-left:-22px;margin-top:-22px;border:1.5px solid rgba(244,242,236,0.55);border-radius:50%;pointer-events:none;z-index:9999;opacity:0;will-change:transform"></div>
+<div ref="{{ setDot }}" style="position:fixed;top:0;left:0;width:7px;height:7px;margin-left:-3.5px;margin-top:-3.5px;background:#CBF13B;border-radius:50%;pointer-events:none;z-index:9999;opacity:0;will-change:transform"></div>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:16px 30px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(11,11,12,0.5);border-bottom:1px solid rgba(244,242,236,0.09)">
+  <button data-cursor onClick="{{ goHome }}" style="background:none;border:none;color:#F4F2EC;font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.005em;display:flex;align-items:center;gap:10px;padding:0;cursor:none">
+    <span style="width:9px;height:9px;background:#CBF13B;border-radius:50%;display:inline-block"></span>ANIS HOSSEINI
+  </button>
+  <nav style="display:flex;align-items:center;gap:4px">
+    <button data-cursor onClick="{{ goWorks }}" style="background:none;border:none;color:#9A9A93;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.09em;padding:8px 12px;cursor:none">Work</button>
+    <button data-cursor onClick="{{ navAbout }}" style="background:none;border:none;color:#9A9A93;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.09em;padding:8px 12px;cursor:none">About</button>
+    <button data-cursor onClick="{{ navExp }}" style="background:none;border:none;color:#9A9A93;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.09em;padding:8px 12px;cursor:none">Experience</button>
+    <button data-cursor onClick="{{ navContact }}" style="background:#CBF13B;color:#0B0B0C;border:none;font-family:'Space Mono',monospace;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:9px 16px;border-radius:100px;cursor:none;margin-left:8px">Let's talk</button>
+  </nav>
+</header>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main>
+  <section style="position:relative;max-width:1440px;margin:0 auto;padding:150px 30px 40px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:-10%;z-index:0;opacity:0.85;filter:blur(50px);pointer-events:none;background-image:radial-gradient(circle at 0% 0%, rgba(255,105,180,0.6), transparent 55%),radial-gradient(circle at 100% 0%, rgba(255,20,147,0.45), transparent 55%),radial-gradient(circle at 20% 100%, rgba(255,150,200,0.4), transparent 55%),radial-gradient(circle at 50% 50%, rgba(11,11,12,0) , transparent 70%);background-size:160% 160%,150% 150%,150% 150%,100% 100%;animation:meshShift 22s ease-in-out infinite"></div>
+    <div data-reveal style="position:relative;z-index:1;opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:0.06em;color:#9A9A93;text-transform:uppercase">
+      <span>Portfolio © 2025 — Graphic &amp; UI/UX Designer</span>
+      <span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:#CBF13B;border-radius:50%;display:inline-block"></span>Open to freelance &amp; full-time</span>
+    </div>
+    <h1 data-reveal class="rg-hero-title" style="position:relative;z-index:1;opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1);font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(58px,13.5vw,230px);line-height:0.98;letter-spacing:0.005em;margin:26px 0 0">ANIS<br><span style="color:#F4F2EC">HOSSEINI</span></h1>
+    <div data-reveal style="position:relative;z-index:1;opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.16,.84,.34,1),transform 1s cubic-bezier(.16,.84,.34,1);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;margin-top:44px">
+      <p style="max-width:560px;font-size:clamp(16px,1.5vw,20px);line-height:1.5;color:#C9C7C0;margin:0;text-wrap:pretty">Graphic &amp; UI/UX designer based in Tehran, pairing interior-architecture training with brand identity, packaging, environmental graphics and digital product design.</p>
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#9A9A93;text-transform:uppercase;display:flex;align-items:center;gap:10px">Scroll to explore<span style="display:inline-block">↓</span></div>
+    </div>
+  </section>
+
+  <div style="border-top:1px solid rgba(244,242,236,0.1);border-bottom:1px solid rgba(244,242,236,0.1);overflow:hidden;padding:18px 0;white-space:nowrap;background:#0E0E10">
+    <div style="display:inline-flex;animation:marq 34s linear infinite;font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(22px,3.4vw,44px);letter-spacing:0.01em;color:#F4F2EC">
+      <span>Brand Identity&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Packaging&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;UI / UX&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Environmental Graphics&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Vehicle Branding&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Print &amp; Publication&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Icon Design&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;</span>
+      <span>Brand Identity&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Packaging&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;UI / UX&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Environmental Graphics&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Vehicle Branding&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Print &amp; Publication&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;Icon Design&nbsp;&nbsp;<span style="color:#CBF13B">✦</span>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <section id="work" style="max-width:1440px;margin:0 auto;padding:110px 30px 40px">
+    <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:56px">
+      <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(34px,6vw,88px);line-height:1.02;letter-spacing:0.005em;margin:0">Selected<br>Work</h2>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:14px">
+        <span style="font-family:'Space Mono',monospace;font-size:13px;color:#9A9A93;letter-spacing:0.05em;max-width:280px;text-align:right;text-wrap:pretty">Featured across digital, identity &amp; packaging — see the full archive.</span>
+        <button data-cursor onClick="{{ goWorks }}" style="background:none;border:1px solid rgba(244,242,236,0.24);color:#F4F2EC;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:9px 16px;border-radius:100px;cursor:none;transition:all .25s" style-hover="background:#CBF13B;color:#0B0B0C;border-color:#CBF13B">All works →</button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:70px">
+      <sc-for list="{{ featured }}" as="p" hint-placeholder-count="3">
+        <div data-reveal style="opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(.16,.84,.34,1),transform .85s cubic-bezier(.16,.84,.34,1)">
+          <button data-cursor onClick="{{ p.onOpen }}" style="width:100%;text-align:left;background:none;border:none;color:inherit;padding:0;cursor:none;display:block">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:20px;border-bottom:1px solid rgba(244,242,236,0.14)">
+              <div style="display:flex;align-items:flex-end;gap:18px">
+                <span style="font-family:'Space Mono',monospace;font-size:14px;color:#CBF13B">({{ p.num }})</span>
+                <h3 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(26px,5vw,62px);line-height:1.04;letter-spacing:0.005em;margin:0">{{ p.title }}</h3>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em">{{ p.category }}</div>
+                <div style="font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.06em;margin-top:6px">View project ↗</div>
+              </div>
+            </div>
+            <div style="position:relative;width:100%;aspect-ratio:16/9;margin-top:22px;overflow:hidden;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.08)">
+              <image-slot id="{{ p.cover }}" shape="rect" placeholder="{{ p.coverLabel }}" src="{{ p.coverSrc }}"></image-slot>
+            </div>
+          </button>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:70px 30px 40px">
+    <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid rgba(244,242,236,0.12)">More disciplines</div>
+    <div class="rg-more" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      <sc-for list="{{ more }}" as="p" hint-placeholder-count="4">
+        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1)">
+          <button data-cursor onClick="{{ p.onOpen }}" style="width:100%;text-align:left;background:none;border:none;color:inherit;padding:0;cursor:none;display:block">
+            <div style="position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.08)">
+              <image-slot id="{{ p.cover }}" shape="rect" placeholder="{{ p.coverLabel }}" src="{{ p.coverSrc }}"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px">
+              <h3 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(20px,2.4vw,30px);letter-spacing:0.005em;margin:0">{{ p.title }}</h3>
+              <span style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;flex-shrink:0">{{ p.num }} ↗</span>
+            </div>
+            <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;margin-top:4px">{{ p.category }}</div>
+          </button>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="about" style="max-width:1440px;margin:0 auto;padding:110px 30px 60px;border-top:1px solid rgba(244,242,236,0.1)">
+    <div class="rg-about" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start">
+      <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.08)">
+        <image-slot id="about-portrait" shape="rect" placeholder="Portrait / studio photo"></image-slot>
+      </div>
+      <div>
+        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:24px">(About)</div>
+        <p data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1);font-family:'Google Sans Flex',sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,36px);line-height:1.28;letter-spacing:0.005em;margin:0 0 40px;text-wrap:pretty">I design across brand identity, packaging, environmental graphics and digital product — bringing spatial thinking and typographic rigor to every surface, from a retail box to a product interface.</p>
+        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1);display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid rgba(244,242,236,0.12)">
+          <div style="padding:20px 0;border-bottom:1px solid rgba(244,242,236,0.12);padding-right:20px"><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Based in</div><div style="font-size:16px">Tehran — Narmak, Iran</div></div>
+          <div style="padding:20px 0;border-bottom:1px solid rgba(244,242,236,0.12);padding-left:20px"><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Education</div><div style="font-size:16px">B.A. Interior Architecture, USC Tehran</div></div>
+          <div style="padding:20px 0;padding-right:20px"><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Languages</div><div style="font-size:16px">Persian · English</div></div>
+          <div style="padding:20px 0;padding-left:20px"><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Focus</div><div style="font-size:16px">Brand · Packaging · UI/UX</div></div>
+        </div>
+        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1);margin-top:44px">
+          <div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px">Software</div>
+          <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px">
+            <sc-for list="{{ software }}" as="s" hint-placeholder-count="8">
+              <span style="border:1px solid rgba(244,242,236,0.2);border-radius:100px;padding:9px 15px;font-family:'Space Mono',monospace;font-size:12.5px;transition:all .25s" style-hover="background:#CBF13B;color:#0B0B0C;border-color:#CBF13B">{{ s }}</span>
+            </sc-for>
+          </div>
+          <div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px">Design</div>
+          <div style="display:flex;flex-wrap:wrap;gap:9px">
+            <sc-for list="{{ design }}" as="s" hint-placeholder-count="7">
+              <span style="border:1px solid rgba(244,242,236,0.2);border-radius:100px;padding:9px 15px;font-family:'Space Mono',monospace;font-size:12.5px;transition:all .25s" style-hover="background:#CBF13B;color:#0B0B0C;border-color:#CBF13B">{{ s }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="max-width:1440px;margin:0 auto;padding:80px 30px 60px">
+    <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:40px">
+      <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(34px,6vw,88px);line-height:1.05;letter-spacing:0.005em;margin:0">Experience</h2>
+      <span style="font-family:'Space Mono',monospace;font-size:13px;color:#9A9A93">6 studios &amp; companies</span>
+    </div>
+    <div>
+      <sc-for list="{{ experience }}" as="e" hint-placeholder-count="6">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.16,.84,.34,1),transform .7s cubic-bezier(.16,.84,.34,1)">
+          <div class="rg-exp" style="display:grid;grid-template-columns:56px 1.2fr 1.4fr;gap:16px;align-items:baseline;padding:24px 14px;border-top:1px solid rgba(244,242,236,0.12);transition:background .3s" style-hover="background:rgba(203,241,59,0.055)">
+            <span style="font-family:'Space Mono',monospace;font-size:13px;color:#9A9A93">{{ e.n }}</span>
+            <div>
+              <div style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(20px,2.4vw,30px);letter-spacing:0.005em">{{ e.company }}</div>
+              <div style="font-family:'Space Mono',monospace;font-size:12.5px;color:#CBF13B;margin-top:7px;text-transform:uppercase;letter-spacing:0.04em">{{ e.role }}</div>
+            </div>
+            <div style="color:#9A9A93;font-size:15px;line-height:1.5;text-wrap:pretty">{{ e.note }}</div>
+          </div>
+        </div>
+      </sc-for>
+      <div style="border-top:1px solid rgba(244,242,236,0.12)"></div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-top:1px solid rgba(244,242,236,0.1);background:#0E0E10">
+    <div style="max-width:1440px;margin:0 auto;padding:110px 30px 90px">
+      <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.34,1),transform .8s cubic-bezier(.16,.84,.34,1);font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:26px">(Contact)</div>
+      <h2 data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1);font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(44px,9vw,140px);line-height:1.0;letter-spacing:0.01em;margin:0 0 56px">Let's build<br><span style="-webkit-text-stroke:1.5px #F4F2EC;color:transparent">something.</span></h2>
+      <div class="rg-contact" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1)">
+          <a data-cursor href="mailto:anis.hosseini4067@gmail.com" style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(20px,2.4vw,32px);color:#F4F2EC;letter-spacing:0.005em;display:inline-block;border-bottom:2px solid #CBF13B;padding-bottom:4px;cursor:none">anis.hosseini4067@gmail.com</a>
+          <div style="margin-top:36px;display:flex;flex-direction:column;gap:20px">
+            <div><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Phone</div><a data-cursor href="tel:+989300338097" style="color:#F4F2EC;font-size:17px;cursor:none">+98 930 033 80 97</a></div>
+            <div><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Location</div><div style="font-size:17px">Tehran — Narmak, Iran</div></div>
+            <div><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Social</div><a data-cursor href="https://www.linkedin.com" target="_blank" rel="noopener" style="color:#F4F2EC;font-size:17px;cursor:none">LinkedIn ↗</a></div>
+          </div>
+        </div>
+        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,.84,.34,1),transform .9s cubic-bezier(.16,.84,.34,1)">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px solid rgba(203,241,59,0.4);background:rgba(203,241,59,0.06);border-radius:10px;padding:40px 28px;text-align:center">
+              <div style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:26px;letter-spacing:0.005em;margin-bottom:8px">Message ready ✦</div>
+              <div style="color:#9A9A93;font-size:15px">Thanks — I'll be in touch soon.</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px">
+              <input required placeholder="Your name" style="background:#141416;border:1px solid rgba(244,242,236,0.16);border-radius:8px;padding:15px 16px;color:#F4F2EC;font-family:'Space Grotesk',sans-serif;font-size:15px;outline:none" />
+              <input required type="email" placeholder="Email address" style="background:#141416;border:1px solid rgba(244,242,236,0.16);border-radius:8px;padding:15px 16px;color:#F4F2EC;font-family:'Space Grotesk',sans-serif;font-size:15px;outline:none" />
+              <textarea required rows="5" placeholder="Tell me about your project" style="background:#141416;border:1px solid rgba(244,242,236,0.16);border-radius:8px;padding:15px 16px;color:#F4F2EC;font-family:'Space Grotesk',sans-serif;font-size:15px;outline:none;resize:vertical"></textarea>
+              <button data-cursor type="submit" style="background:#CBF13B;color:#0B0B0C;border:none;border-radius:100px;padding:15px 24px;font-family:'Space Mono',monospace;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;cursor:none;transition:transform .2s" style-hover="transform:translateY(-2px)">Send message →</button>
+            </form>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width:1440px;margin:0 auto;padding:34px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em">
+    <span>© 2025 Anis Hosseini</span>
+    <span>Graphic &amp; UI/UX Designer — Tehran</span>
+    <button data-cursor onClick="{{ goHome }}" style="background:none;border:none;color:#CBF13B;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:none">Back to top ↑</button>
+  </footer>
+</main>
+</sc-if>
+
+<sc-if value="{{ isWorks }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="max-width:1440px;margin:0 auto;padding:150px 30px 20px">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:24px">(Selected works — 07 projects)</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+      <h1 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(52px,10vw,170px);line-height:1.0;letter-spacing:0.005em;margin:0">Works</h1>
+      <p style="max-width:400px;font-size:clamp(15px,1.5vw,18px);line-height:1.5;color:#9A9A93;margin:0 0 12px;text-wrap:pretty">Brand, packaging, environments and digital product — each project with its own story. Open any to read more.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:56px 30px 90px">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <sc-for list="{{ all }}" as="p" hint-placeholder-count="7">
+        <button data-cursor onClick="{{ p.onOpen }}" style="width:100%;text-align:left;background:none;border:none;color:inherit;cursor:none;padding:0;display:block">
+          <div class="rg-workitem" style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;padding-top:26px;border-top:1px solid rgba(244,242,236,0.14)">
+            <div style="position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.08);transition:box-shadow .35s" style-hover="box-shadow:0 0 0 1px rgba(203,241,59,0.45),0 24px 60px rgba(0,0,0,0.55)">
+              <image-slot id="{{ p.cover }}" shape="rect" placeholder="{{ p.coverLabel }}" src="{{ p.coverSrc }}"></image-slot>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:16px;font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px">
+                <span style="color:#CBF13B">({{ p.num }})</span><span>{{ p.category }}</span><span>{{ p.year }}</span>
+              </div>
+              <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(28px,4vw,56px);line-height:1.06;letter-spacing:0.005em;margin:0 0 16px">{{ p.title }}</h2>
+              <p style="font-size:15.5px;line-height:1.55;color:#B7B5AE;margin:0 0 20px;max-width:460px;text-wrap:pretty">{{ p.summary }}</p>
+              <span style="font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.06em">Read the story ↗</span>
+            </div>
+          </div>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="max-width:1440px;margin:0 auto;padding:34px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em;border-top:1px solid rgba(244,242,236,0.1)">
+    <span>© 2025 Anis Hosseini</span>
+    <button data-cursor onClick="{{ goHome }}" style="background:none;border:none;color:#CBF13B;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:none">← Back home</button>
+  </footer>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<main>
+  <section style="max-width:1440px;margin:0 auto;padding:130px 30px 40px">
+    <button data-cursor onClick="{{ goWorks }}" style="background:none;border:none;color:#9A9A93;font-family:'Space Mono',monospace;font-size:12.5px;text-transform:uppercase;letter-spacing:0.07em;cursor:none;padding:0;margin-bottom:44px" style-hover="color:#CBF13B">← All work</button>
+    <div style="display:flex;align-items:center;gap:18px;font-family:'Space Mono',monospace;font-size:12.5px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:20px">
+      <span>({{ current.num }})</span><span style="color:#9A9A93">{{ current.category }}</span><span style="color:#9A9A93">{{ current.year }}</span>
+    </div>
+    <h1 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(44px,9vw,150px);line-height:1.0;letter-spacing:0.005em;margin:0 0 32px">{{ current.title }}</h1>
+    <div class="rg-projhead" style="display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;padding-bottom:40px;border-bottom:1px solid rgba(244,242,236,0.12)">
+      <p style="font-size:clamp(16px,1.6vw,21px);line-height:1.5;color:#C9C7C0;margin:0;max-width:640px;text-wrap:pretty">{{ current.summary }}</p>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Role</div><div style="font-size:15px">{{ current.role }}</div></div>
+        <div><div style="font-family:'Space Mono',monospace;font-size:11.5px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px">Tools</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ current.tools }}" as="t" hint-placeholder-count="3">
+              <span style="border:1px solid rgba(244,242,236,0.2);border-radius:100px;padding:6px 12px;font-family:'Space Mono',monospace;font-size:11.5px">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:36px 30px 0">
+    <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:10px;background:#141416;border:1px solid rgba(244,242,236,0.08)">
+      <image-slot id="{{ current.cover }}" shape="rect" placeholder="{{ current.coverLabel }}" src="{{ current.coverSrc }}"></image-slot>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:64px 30px 24px">
+    <div class="rg-story" style="display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start;border-top:1px solid rgba(244,242,236,0.12);padding-top:48px">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:22px">(The story)</div>
+        <p style="font-family:'Google Sans Flex',sans-serif;font-weight:500;font-size:clamp(20px,2.3vw,31px);line-height:1.32;letter-spacing:0.005em;margin:0;color:#EDEBE4;text-wrap:pretty">{{ current.story }}</p>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:14px">Highlights</div>
+        <sc-for list="{{ current.features }}" as="f" hint-placeholder-count="4">
+          <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-top:1px solid rgba(244,242,236,0.12)">
+            <span style="width:7px;height:7px;background:#CBF13B;border-radius:50%;flex-shrink:0;transform:translateY(-1px)"></span>
+            <span style="font-size:16px;line-height:1.4;color:#D9D7D0">{{ f }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:16px 30px 40px">
+    <div class="rg-slots" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+      <sc-for list="{{ current.slots }}" as="slot" hint-placeholder-count="4">
+        <div style="{{ slot.colStyle }}">
+          <div style="position:relative;overflow:hidden;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.08);transition:box-shadow .35s;{{ slot.ratioStyle }}" style-hover="box-shadow:0 0 0 1px rgba(203,241,59,0.45),0 24px 60px rgba(0,0,0,0.55)">
+            <image-slot id="{{ slot.id }}" shape="rect" placeholder="{{ slot.label }}" src="{{ slot.src }}"></image-slot>
+          </div>
+          <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;margin-top:11px;letter-spacing:0.03em">{{ slot.cap }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:60px 30px 80px">
+    <button data-cursor onClick="{{ current.next.onOpen }}" style="width:100%;text-align:left;background:none;border:none;color:inherit;cursor:none;padding:40px 0;border-top:1px solid rgba(244,242,236,0.14);display:flex;justify-content:space-between;align-items:center;gap:24px" style-hover="opacity:0.7">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Next project ({{ current.next.num }})</div>
+        <div style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(30px,6vw,80px);line-height:1.05;letter-spacing:0.005em">{{ current.next.title }}</div>
+      </div>
+      <span style="font-family:'Google Sans Flex',sans-serif;font-size:clamp(30px,6vw,72px);color:#CBF13B">→</span>
+    </button>
+  </section>
+
+  <footer style="max-width:1440px;margin:0 auto;padding:34px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em;border-top:1px solid rgba(244,242,236,0.1)">
+    <span>© 2025 Anis Hosseini</span>
+    <button data-cursor onClick="{{ goWorks }}" style="background:none;border:none;color:#CBF13B;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:none">← Back to work</button>
+  </footer>
+</main>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { route: 'home', sent: false };
+
+  PROJECTS = [
+    { slug:'uiux', num:'01', title:'UI / UX & Web', category:'Digital Product Design', year:'2022—25', role:'Lead UI/UX & Visual Designer', tools:['Figma','Adobe XD','Photoshop'],
+      summary:'Websites and product interfaces spanning corporate sites and internal tools — from Datisint.com to the Hamrahfelez dashboard and Pish-Ahangan campaign pages. Systems-driven layouts, clear hierarchy and considered interaction detail.',
+      story:'The brief was to make technical products feel effortless online. I built a flexible layout system with a clear typographic hierarchy, then carried it from the Datisint.com marketing site through to the Hamrahfelez operations dashboard — so brand and product finally spoke the same language.', features:['Design system & component library','Responsive, mobile to desktop','Dashboard data visualisation','Interaction & micro-motion detail'],
+      cover:'uiux-cover', coverLabel:'Datisint.com — website UI',
+      slots:[
+        {id:'uiux-g1',label:'Datisint.com — desktop homepage',span:2,ratio:'16/9'},
+        {id:'uiux-g2',label:'Datisint.com — inner pages',span:1,ratio:'3/4'},
+        {id:'uiux-g3',label:'Hamrahfelez — dashboard UI',span:1,ratio:'3/4'},
+        {id:'uiux-g4',label:'Pish-Ahangan — landing UI',span:2,ratio:'16/9'} ] },
+    { slug:'brand', num:'02', title:'Brand & Identity', category:'Identity Systems', year:'2021—24', role:'Brand Designer', tools:['Illustrator','Photoshop'],
+      summary:'Logo redesign and identity work for Electrogen — mark construction on a strict grid, old-to-new evolution, and full stationery including a redesigned visiting card.',
+      story:'Electrogen\'s original mark had drifted out of proportion and lost impact at small sizes. I rebuilt it on a strict geometric grid, tightened the counters and spacing, then rolled the refreshed identity across stationery and a new visiting card that stays sharp from a metre away.', features:['Logo redrawn on a modular grid','Old-to-new evolution study','Full stationery system','Print-ready visiting card'],
+      cover:'brand-cover', coverLabel:'Electrogen — identity system',
+      slots:[
+        {id:'brand-g1',label:'Electrogen — logo grid & construction',span:2,ratio:'16/10'},
+        {id:'brand-g2',label:'Old vs new mark',span:1,ratio:'1/1'},
+        {id:'brand-g3',label:'Visiting card — front & back',span:1,ratio:'1/1'},
+        {id:'brand-g4',label:'Brand system in application',span:2,ratio:'16/9'} ] },
+    { slug:'packaging', num:'03', title:'Packaging Design', category:'Product Packaging & Print', year:'2020—24', role:'Packaging & Print Designer', tools:['Illustrator','Photoshop','KeyShot'],
+      summary:'Retail packaging for electronics — 27" and 24" monitors, video door phones and CCTV camera series — with matching datasheets and spec layouts built for print production.',
+      story:'Retail electronics live or die on the shelf. For Electrogen\'s monitors, door phones and CCTV lines I designed packaging that signals quality at a glance, with a consistent spec-panel language and datasheets engineered to survive real print production.', features:['Shelf-ready retail structures','Unified spec-panel system','Print & Pantone production files','Matching datasheet layouts'],
+      cover:'pack-cover', coverLabel:'Electronics retail packaging', coverSrc:'./package-pantos.jpg.png',
+      slots:[
+        {id:'pack-g1',label:'27" monitor — retail box',span:1,ratio:'3/4',src:'./package-pantos.jpg.png'},
+        {id:'pack-g2',label:'24" monitor — retail box',span:1,ratio:'3/4',src:'./package-briton.jpg.png'},
+        {id:'pack-g3',label:'Video door phone — packaging',span:1,ratio:'3/4'},
+        {id:'pack-g4',label:'CCTV camera — high-value series',span:1,ratio:'3/4'},
+        {id:'pack-g5',label:'Datasheet & spec layout',span:2,ratio:'16/9'} ] },
+    { slug:'environmental', num:'04', title:'Environmental Graphics', category:'Signage & Spatial Branding', year:'2020—23', role:'Environmental Graphic Designer', tools:['Illustrator','Cinema 4D'],
+      summary:'Showroom and retail environments for Briton and Datis — storefronts, shopping-center graphics and large-format billboards across Tehran and Shiraz–Kazerun.',
+      story:'From a Tehran storefront to a shopping-center facade in Shiraz–Kazerun, these environments had to pull people in from the street. I scaled the brand up to architecture — storefronts, wayfinding and billboards — balancing bold legibility with the space around it.', features:['Storefront & facade graphics','Large-format billboard design','Before / after transformations','Spatial brand application'],
+      cover:'env-cover', coverLabel:'Briton showroom — storefront',
+      slots:[
+        {id:'env-g1',label:'Briton Jomhuri showroom',span:2,ratio:'16/9'},
+        {id:'env-g2',label:'Shiraz–Kazerun shopping center',span:1,ratio:'3/4'},
+        {id:'env-g3',label:'Datis Tehran — before / after',span:1,ratio:'3/4'},
+        {id:'env-g4',label:'Shiraz–Kazerun billboard',span:2,ratio:'16/9'} ] },
+    { slug:'vehicle', num:'05', title:'Vehicle Branding', category:'Fleet Livery', year:'2021—23', role:'Graphic Designer', tools:['Illustrator'],
+      summary:'Full-vehicle branding and fleet livery for Electrogen and Pouyesh Rayan-e Datis — bold, legible identity carried across moving surfaces.',
+      story:'A moving vehicle is a billboard that finds its own audience. I designed fleet livery for Electrogen and Datis that stays legible at speed and holds the brand together whether you catch it head-on or in passing.', features:['Full-wrap fleet livery','Legible at distance & speed','Consistent multi-vehicle system','Production-ready wrap files'],
+      cover:'veh-cover', coverLabel:'Electrogen — fleet livery',
+      slots:[
+        {id:'veh-g1',label:'Electrogen — full fleet livery',span:2,ratio:'16/9'},
+        {id:'veh-g2',label:'Datis — van branding',span:1,ratio:'3/4'},
+        {id:'veh-g3',label:'Wrap detail',span:1,ratio:'3/4'} ] },
+    { slug:'print', num:'06', title:'Print & Publication', category:'Print Production', year:'2019—24', role:'Print Designer', tools:['InDesign','Illustrator'],
+      summary:'Catalogs, notebooks, shopping bags and certificates — production-ready print with careful attention to materials, finishing and Pantone accuracy.',
+      story:'Print is where craft shows. Across catalogs, notebooks, bags and certificates I obsessed over grid, paper and finishing — specifying materials and Pantones so the printed piece matched the intent exactly.', features:['Editorial catalog systems','Material & finishing specs','Pantone-accurate production','Packaging & certificate design'],
+      cover:'print-cover', coverLabel:'Catalog & publication design',
+      slots:[
+        {id:'print-g1',label:'Electrogen — printed catalog',span:1,ratio:'3/4'},
+        {id:'print-g2',label:'Filter Alborz — catalog',span:1,ratio:'3/4'},
+        {id:'print-g3',label:'Notebook design',span:1,ratio:'3/4'},
+        {id:'print-g4',label:'Shopping / branding bag',span:1,ratio:'3/4'},
+        {id:'print-g5',label:'Certificate — plexi & metal on velvet',span:2,ratio:'16/9'} ] },
+    { slug:'icon', num:'07', title:'Icon Design', category:'Iconography', year:'2023', role:'Icon Designer', tools:['Illustrator','Figma'],
+      summary:'A cohesive icon pack for Electrogen built on a consistent grid and stroke system — legible from UI scale to large-format signage.',
+      story:'Electrogen needed one icon language that worked in a UI and on a wall. I built the set on a shared grid and stroke system, so every icon feels part of the same family from 24 pixels up to large-format signage.', features:['Shared grid & stroke system','Consistent optical weight','Scales from UI to signage','Delivered as a full pack'],
+      cover:'icon-cover', coverLabel:'Electrogen — icon pack',
+      slots:[
+        {id:'icon-g1',label:'Electrogen icon pack — overview',span:2,ratio:'16/9'},
+        {id:'icon-g2',label:'Icon grid & construction',span:1,ratio:'1/1'},
+        {id:'icon-g3',label:'Icons in context',span:1,ratio:'1/1'} ] },
+  ];
+
+  open(slug){ this.setState({ route: slug, sent:false }); window.scrollTo({ top:0 }); }
+  nav(id){
+    const scrollToTarget = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 68;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    };
+    if (this.state.route !== 'home') {
+      this.setState({ route: 'home' }, () => {
+        setTimeout(scrollToTarget, 60);
+      });
+    } else {
+      scrollToTarget();
+    }
+  }
+
+  renderVals(){
+    const route = this.state.route;
+    const isHome = route === 'home';
+    let current = this.PROJECTS.find(p => p.slug === route) || null;
+    if (current){
+      const i = this.PROJECTS.indexOf(current);
+      const nx = this.PROJECTS[(i + 1) % this.PROJECTS.length];
+      current = { ...current,
+        coverSrc: current.coverSrc || '',
+        slots: current.slots.map((s, i) => ({ ...s, src: s.src || '', colStyle: (s.span === 2 ? 'grid-column:1/-1' : ''), ratioStyle: 'aspect-ratio:' + s.ratio, cap: String(i + 1).padStart(2, '0') + ' — ' + s.label })),
+        next: { num: nx.num, title: nx.title, onOpen: () => this.open(nx.slug) } };
+    }
+    const withOpen = arr => arr.map(p => ({ ...p, coverSrc: p.coverSrc || '', onOpen: () => this.open(p.slug) }));
+    return {
+      route, isHome, isWorks: route === 'works', isProject: !!current, current,
+      featured: withOpen(this.PROJECTS.slice(0,3)),
+      more: withOpen(this.PROJECTS.slice(3)),
+      all: withOpen(this.PROJECTS),
+      sent: this.state.sent, notSent: !this.state.sent,
+      software: ['Adobe Illustrator','Adobe Photoshop','Adobe InDesign','Figma','Adobe XD','CorelDRAW','KeyShot','Cinema 4D'],
+      design: ['Brand & Identity','Packaging Design','Print & Publication','Environmental Graphics','Vehicle Branding','Social Media Design','UI / UX Design'],
+      experience: [
+        {n:'01',company:'Pouyesh Rayan-e Datis',role:'Senior Graphic Designer',note:'Brand, packaging & environmental graphics across the Datis product lines.'},
+        {n:'02',company:'Pish-Ahangan Creative Agency',role:'Senior Graphic Designer',note:'Interactive catalogs and UI/UX for a range of agency clients.'},
+        {n:'03',company:'Hamrah-Felez',role:'Graphic & UI Designer',note:'Product interface design and marketing collateral.'},
+        {n:'04',company:'Pio Device Company',role:'Graphic Designer',note:'Electronics packaging and print production.'},
+        {n:'05',company:'Didino Creative Agency',role:'Graphic Designer & Photographer',note:'Brand campaigns and product photography.'},
+        {n:'06',company:'Tarhe Aval Design & Printing',role:'Graphic Designer',note:'Print production and publication design.'},
+      ],
+      goHome: () => { this.setState({ route:'home' }); window.scrollTo({ top:0 }); },
+      goWorks: () => { this.setState({ route:'works' }); window.scrollTo({ top:0 }); },
+      navAbout: () => this.nav('about'),
+      navExp: () => this.nav('experience'),
+      navContact: () => this.nav('contact'),
+      submit: (e) => { e.preventDefault(); this.setState({ sent:true }); },
+      setDot: (n) => { this.dot = n; },
+      setRing: (n) => { this.ring = n; },
+    };
+  }
+
+  componentDidMount(){ this.setupCursor(); this.initReveal(); }
+  componentDidUpdate(pp, ps){ if (ps.route !== this.state.route) this.initReveal(); else this.initReveal(); }
+  componentWillUnmount(){ if (this._raf) cancelAnimationFrame(this._raf); }
+
+  initReveal(){
+    const els = document.querySelectorAll('[data-reveal]');
+    if (!('IntersectionObserver' in window)){ els.forEach(el => { el.style.opacity='1'; el.style.transform='none'; }); return; }
+    if (this._io) { try { this._io.disconnect(); } catch(e){} }
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting){
+          e.target.style.opacity='1';
+          e.target.style.transform='none';
+          this._io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -4% 0px' });
+    let i = 0;
+    els.forEach(el => {
+      el.style.transitionDelay = (Math.min(i,5) * 0.06) + 's';
+      i++;
+      this._io.observe(el);
+    });
+    setTimeout(() => {
+      els.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+    }, 250);
+  }
+
+  setupCursor(){
+    const dot = this.dot, ring = this.ring;
+    if (!dot || !ring) return;
+    if (!window.matchMedia || !window.matchMedia('(pointer:fine)').matches){ dot.style.display='none'; ring.style.display='none'; return; }
+    document.body.style.cursor = 'none';
+    let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my, s = 1, ts = 1, shown = false;
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!shown){ shown = true; dot.style.opacity='1'; ring.style.opacity='1'; }
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    });
+    document.addEventListener('mouseover', (e) => {
+      const t = e.target.closest && e.target.closest('a,button,[data-cursor]');
+      ts = t ? 2.0 : 1;
+      ring.style.borderColor = t ? '#CBF13B' : 'rgba(244,242,236,0.55)';
+    });
+    const loop = () => {
+      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16; s += (ts - s) * 0.18;
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) scale(' + s + ')';
+      this._raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+}
+</script>
+</body>
+</html>

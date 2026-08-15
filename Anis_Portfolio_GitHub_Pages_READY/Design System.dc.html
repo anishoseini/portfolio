@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#0B0B0C;color:#F4F2EC;font-family:'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#CBF13B}
+</style>
+</helmet>
+
+<div style="max-width:1100px;margin:0 auto;padding:80px 30px 120px">
+
+  <div style="font-family:'Space Mono',monospace;font-size:12px;color:#CBF13B;text-transform:uppercase;letter-spacing:0.09em;margin-bottom:10px">Anis Hosseini Portfolio</div>
+  <h1 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:clamp(36px,6vw,64px);letter-spacing:0.005em;margin:0 0 60px">Design System</h1>
+
+  <section style="margin-bottom:64px">
+    <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:24px;margin:0 0 20px;border-bottom:1px solid rgba(244,242,236,0.14);padding-bottom:14px">Color</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px">
+      <div><div style="height:80px;border-radius:8px;background:#0B0B0C;border:1px solid rgba(244,242,236,0.16)"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Background<br><span style="color:#9A9A93">#0B0B0C</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:#0E0E10;border:1px solid rgba(244,242,236,0.16)"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Background Alt<br><span style="color:#9A9A93">#0E0E10</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.16)"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Surface<br><span style="color:#9A9A93">#141416</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:#F4F2EC"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Foreground<br><span style="color:#9A9A93">#F4F2EC</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:#C9C7C0"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Body text<br><span style="color:#9A9A93">#C9C7C0</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:#9A9A93"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Muted<br><span style="color:#9A9A93">#9A9A93</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:#CBF13B"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Accent (lime)<br><span style="color:#9A9A93">#CBF13B</span></div></div>
+      <div><div style="height:80px;border-radius:8px;background:linear-gradient(135deg,#ff69b4,#ff1493)"></div><div style="font-family:'Space Mono',monospace;font-size:12px;margin-top:8px">Hero gradient (pink)<br><span style="color:#9A9A93">#FF69B4 → #FF1493</span></div></div>
+    </div>
+    <div style="margin-top:20px;font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;line-height:1.6">
+      Borders: rgba(244,242,236,0.08–0.24) on dark surfaces · Hero mesh gradient: radial pink blobs, opacity .85, blur 50px, 22s ease-in-out loop (meshShift keyframe)
+    </div>
+  </section>
+
+  <section style="margin-bottom:64px">
+    <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:24px;margin:0 0 20px;border-bottom:1px solid rgba(244,242,236,0.14);padding-bottom:14px">Typography</h2>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Display / Headings — Google Sans Flex, weight 600</div>
+        <div style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:56px;letter-spacing:0.005em">Selected Work</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Body — Space Grotesk, weight 400</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;color:#C9C7C0;max-width:620px;line-height:1.5">Graphic &amp; UI/UX designer based in Tehran, pairing interior-architecture training with brand identity, packaging and digital product design.</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Labels / Mono — Space Mono, weight 400/700, uppercase, tracked</div>
+        <div style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase">Portfolio © 2025 — Graphic &amp; UI/UX Designer</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom:64px">
+    <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:24px;margin:0 0 20px;border-bottom:1px solid rgba(244,242,236,0.14);padding-bottom:14px">Components</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:24px">
+      <button style="background:#CBF13B;color:#0B0B0C;border:none;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:9px 16px;border-radius:100px">Primary — Let's talk</button>
+      <button style="background:none;border:1px solid rgba(244,242,236,0.24);color:#F4F2EC;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:9px 16px;border-radius:100px">Secondary — All works →</button>
+      <button style="background:none;border:none;color:#9A9A93;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.09em;padding:8px 12px">Nav item</button>
+    </div>
+    <div style="width:100%;max-width:340px;aspect-ratio:4/3;border-radius:8px;background:#141416;border:1px solid rgba(244,242,236,0.08);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;color:#9A9A93">Image slot / card surface</div>
+  </section>
+
+  <section>
+    <h2 style="font-family:'Google Sans Flex',sans-serif;font-weight:600;font-size:24px;margin:0 0 20px;border-bottom:1px solid rgba(244,242,236,0.14);padding-bottom:14px">Notes</h2>
+    <ul style="font-family:'Space Grotesk',sans-serif;font-size:15px;color:#C9C7C0;line-height:1.7;padding-left:20px;margin:0">
+      <li>Radius: 8px for cards/surfaces, 100px (pill) for buttons</li>
+      <li>Cursor: custom ring + dot cursor on desktop (pointer:fine), hidden on touch</li>
+      <li>Reveal-on-scroll: fade + translateY(20-30px), IntersectionObserver, staggered delay</li>
+      <li>Keep this file updated as the source of truth — reference it before future style edits</li>
+    </ul>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>
